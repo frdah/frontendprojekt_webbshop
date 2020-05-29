@@ -1,0 +1,186 @@
+const cart = document.querySelector("#cart");
+const name = document.querySelector("#name");
+const email = document.querySelector("#email");
+const phone = document.querySelector("#phone");
+const street = document.querySelector("#street");
+const city = document.querySelector("#city");
+const zipcode = document.querySelector("#zipcode");
+const shipping = document.querySelector("#shipping");
+
+if (
+  localStorage.getItem("cartArr") !== null &&
+  JSON.parse(localStorage.getItem("cartArr")).products.length !== 0
+) {
+  const cartArr = JSON.parse(localStorage.getItem("cartArr"));
+  const products = cartArr.products;
+  document.querySelector(
+    "#total"
+  ).textContent = `Totalsumma: ${cartArr.sum} kr`;
+  document.querySelector("#json").value = localStorage.getItem("cartArr");
+
+  for (let i = 0; i < cartArr.products.length; i++) {
+    const li = document.createElement("li");
+
+    const productImage = document.createElement("img");
+    productImage.setAttribute("src", products[i].image);
+    productImage.classList.add("product-image");
+    li.appendChild(productImage);
+
+    const productTitle = document.createElement("span");
+    productTitle.classList.add("product-title");
+    productTitle.textContent = products[i].name;
+    li.appendChild(productTitle);
+
+    const qty = document.createElement("span");
+    qty.textContent = `${products[i].qty} st`;
+    li.appendChild(qty);
+
+    const price = document.createElement("span");
+    price.classList.add("price");
+    price.textContent = `${products[i].unitPrice * products[i].qty} kr`;
+    li.appendChild(price);
+
+    cart.appendChild(li);
+  }
+
+  if (cartArr.sum > 500) {
+    shipping.style = "text-decoration: line-through;";
+  }
+
+  document.querySelector("#phone").addEventListener("keypress", function (e) {
+    if (e.which < 48 || e.which > 57) {
+      e.preventDefault();
+    }
+  });
+
+  const city = document.querySelector("#city");
+
+  city.addEventListener("input", function (e) {
+    if (e.currentTarget.value.trim().toLowerCase() === "stockholm") {
+      shipping.style = "text-decoration: line-through;";
+    } else if (cartArr.sum <= 500) {
+      shipping.style = "text-decoration: none;";
+    }
+  });
+
+  city.addEventListener("keypress", function (e) {
+    if (e.which >= 48 && e.which <= 57) {
+      e.preventDefault();
+    }
+  });
+
+  name.addEventListener("keypress", function (e) {
+    if (e.which >= 48 && e.which <= 57) {
+      e.preventDefault();
+    }
+  });
+
+  zipcode.addEventListener("keypress", function (e) {
+    if (e.which < 48 || e.which > 57) {
+      e.preventDefault();
+    }
+  });
+} else {
+  total.textContent = "Totalsumma: 0 kr";
+  cart.innerHTML =
+    "<h2 class='empty'>Varukorgen är tom</h2><a class='to-start' href='./index.php'>Tillbaka till startsidan</a>";
+  const form = document.querySelector("#form");
+  form.parentElement.removeChild(form);
+}
+
+function validateLetters(inputText) {
+  var letters = /^[a-öA-Ö\s]+$/;
+  if (inputText.value.match(letters)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function validateForm() {
+  const alerts = document.querySelectorAll(".alert");
+  let error = false;
+
+  for (let i = 0; i < alerts.length; i++) {
+    alerts[i].parentElement.removeChild(alerts[i]);
+  }
+
+  if (!validateLetters(name)) {
+    let alert = document.createElement("span");
+    alert.classList.add("alert");
+    alert.textContent = "Namn får endast innehålla bokstäver";
+    name.after(alert);
+    error = true;
+  }
+
+  if (
+    name.value.trim().length < 2 ||
+    name.value.trim().length > 20 ||
+    /\d/.test(name.value)
+  ) {
+    let alert = document.createElement("span");
+    alert.classList.add("alert");
+    alert.textContent = "Namn måste vara mellan 2-20 tecken";
+    name.after(alert);
+    error = true;
+  }
+
+  if (email.value.trim().length < 2 || email.value.trim().length > 40) {
+    let alert = document.createElement("span");
+    alert.classList.add("alert");
+    alert.textContent = "Email måste vara mellan 2-40 tecken";
+    email.after(alert);
+    error = true;
+  }
+
+  if (phone.value.trim().length < 2 || phone.value.trim().length > 20) {
+    let alert = document.createElement("span");
+    alert.classList.add("alert");
+    alert.textContent = "Nummer måste vara mellan 2-20 tecken";
+    phone.after(alert);
+    error = true;
+  }
+
+  if (zipcode.value.trim().split(" ").join("").length !== 5) {
+    let alert = document.createElement("span");
+    alert.classList.add("alert");
+    alert.textContent = "Vänligen ange ett giltigt postnummer";
+    zipcode.after(alert);
+    error = true;
+  }
+
+  if (street.value.trim().length < 2 || street.value.trim().length > 40) {
+    let alert = document.createElement("span");
+    alert.classList.add("alert");
+    alert.textContent = "Gatuadress måste vara mellan 2-40 tecken";
+    street.after(alert);
+    error = true;
+  }
+
+  if (
+    city.value.trim().length < 2 ||
+    city.value.trim().length > 40 ||
+    /\d/.test(city.value)
+  ) {
+    let alert = document.createElement("span");
+    alert.classList.add("alert");
+    alert.textContent = "Ort måste vara mellan 2-40 tecken";
+    city.after(alert);
+    error = true;
+  }
+
+  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value)) {
+  } else {
+    let alert = document.createElement("span");
+    alert.classList.add("alert");
+    alert.textContent = "Vänligen ange en giltig e-post";
+    email.after(alert);
+    error = true;
+  }
+
+  if (error) {
+    return false;
+  } else {
+    return true;
+  }
+}
