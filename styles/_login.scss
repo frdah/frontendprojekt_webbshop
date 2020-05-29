@@ -1,0 +1,92 @@
+.login-form {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid grey;
+  padding: 2% 4% 4% 4%;
+  margin-bottom: 70px;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4%;
+
+    input {
+      font-size: 20px;
+      padding: 1%;
+      border: 1px solid #e2b4bd;
+      border-radius: 7px;
+    }
+  }
+}
+
+@media (min-width: 800px) {
+  .login-form {
+    width: 30%;
+  }
+}
+
+.loginPopup {
+  color: rgb(255, 65, 65);
+  text-align: center;
+  margin-bottom: 2%;
+}
+
+.valPopup {
+  font-size: 12px;
+  color: red;
+  text-align: center;
+}
+
+.login-button {
+  border: none;
+  background-color: #93a8ac;
+  padding: 2%;
+  border-radius: 10px;
+  color: white;
+
+  &:hover {
+    background-color: #e2b4bd;
+    cursor: pointer;
+  }
+}
+
+.forgotPass {
+  margin-top: 3%;
+  //margin-bottom: 2%;
+  text-align: center;
+  &:hover {
+    color: #93a8ac;
+    cursor: pointer;
+  }
+}
+
+.hide {
+  display: none;
+}
+
+.forgot-form {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid grey;
+  padding: 2% 4% 4% 4%;
+  margin-bottom: 70px;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4%;
+
+    input {
+      font-size: 20px;
+      padding: 1%;
+      border: 1px solid #e2b4bd;
+      border-radius: 7px;
+    }
+  }
+}
+
+@media (min-width: 800px) {
+  .forgot-form {
+    width: 30%;
+  }
+}

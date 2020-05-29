@@ -1,0 +1,82 @@
+.mainDiv {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.memberOrder {
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2%;
+  margin: 20px 30px 20px 30px;
+  border: 2px #e2b4bd solid;
+  border-radius: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #424b54;
+  width: 90%;
+}
+
+.memberOrderCompleted {
+  border-color: #dddddd;
+  background-color: #dddddd;
+}
+
+.memberOrderStatus {
+  font-size: 12px;
+}
+.orderNum {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #424b54;
+  font-size: 20px;
+  margin: 0.5% 0 1% 0;
+}
+
+.memberPageProduct {
+  width: 80%;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: #93a8ac 1px solid;
+  padding: 2% 0 2% 0;
+  img {
+    width: 100px;
+  }
+  span {
+    background-color: #93a8ac;
+    color: white;
+    padding: 1%;
+    border-radius: 10px;
+  }
+}
+
+.memberPageSum {
+  margin-top: 2%;
+}
+
+@media (min-width: 500px) {
+  .memberPageProduct {
+    img {
+      width: 150px;
+    }
+  }
+}
+
+@media (min-width: 900px) {
+}
+
+@media (min-width: 900px) {
+  .memberOrder {
+    width: 70%;
+    align-self: center;
+  }
+}
+
+@media (min-width: 1100px) {
+  .memberOrder {
+    width: 60%;
+    align-self: center;
+  }
+}

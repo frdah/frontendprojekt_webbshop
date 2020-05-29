@@ -1,0 +1,136 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+body > div {
+  height: 60px;
+  display: flex;
+
+  justify-content: center;
+  background-color: #93a8ac;
+}
+
+.logo_header_start {
+  height: 60px;
+}
+
+.createAcc-background-div {
+  background-image: url("./images/header-photo.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: auto;
+  display: flex;
+}
+
+.form-div {
+  display: flex;
+  width: 100vw;
+  height: auto;
+  background-color: none;
+}
+.createAcc-form {
+  background-color: rgba(255, 255, 255, 0.746);
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  color: #424b54;
+  padding-bottom: 40px;
+  padding-top: 30px;
+}
+
+.createAcc-form > div {
+  margin: 2%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.createAcc-form div input {
+  width: 300px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+}
+
+.createAcc-button {
+  margin-top: 4%;
+  width: 200px;
+  height: 30px;
+  background-color: #93a8ac;
+  border: none;
+  border-radius: 10px;
+  color: white;
+}
+
+@media (min-width: 700px) {
+  .createAcc-form {
+    width: 60vw;
+    align-self: center;
+    margin-top: 50px;
+  }
+}
+
+@media (min-width: 900px) {
+  .nav {
+    justify-content: start;
+    img {
+      margin-left: 50%;
+    }
+  }
+  .createAcc-background-div {
+    background-image: url("./images/header-photo.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+  }
+  .createAcc-form {
+    width: 80vw;
+    align-self: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    margin-top: 0px;
+  }
+
+  .startpageHeading {
+    grid-column: 1/3;
+  }
+
+  .createAcc-button {
+    grid-column: 1/3;
+  }
+}
+
+@media (min-width: 1100px) {
+  .createAcc-form {
+    width: 60vw;
+  }
+}
+
+.valPopup {
+  font-size: 12px;
+  color: red;
+  text-align: center;
+}
+
+.strongPass {
+  font-size: 12px;
+  color: rgb(4, 150, 11);
+  text-align: center;
+}
+.okPass {
+  font-size: 12px;
+  color: #424b54;
+  text-align: center;
+}
+.hide {
+  display: none;
+}

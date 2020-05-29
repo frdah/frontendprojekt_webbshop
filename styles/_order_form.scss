@@ -1,0 +1,109 @@
+.orderForm {
+  margin: 10% 5%;
+  background: #ffffff;
+  box-shadow: 0 4px 15px gray;
+  display: grid;
+  gap: 1em;
+  max-width: 1180px;
+  padding: 5%;
+  @media (min-width: 900px) {
+    margin-bottom: 80px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1.5fr 1fr 1fr 1fr;
+    max-width: 1000px;
+  }
+  @media (min-width: 1200px) {
+    margin: 80px auto;
+  }
+}
+
+.formTitle {
+  text-align: center;
+  margin: 29px auto;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  justify-self: center;
+  color: #424b54;
+  @media (min-width: 900px) {
+    grid-column: span 2;
+    margin: 0px;
+    max-width: 50%;
+  }
+}
+
+.orderForm input {
+  background-color: #ffffff;
+  border: none;
+  border-bottom: 1.5px solid #424b54;
+  width: 100%;
+  font-size: 16px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-top: 20px;
+  @media (min-width: 900px) {
+    font-size: 18px;
+    width: 85%;
+  }
+}
+.orderForm .orderConfirmBtn {
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  background: #424b54;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 12px;
+
+  &:hover {
+    background: #93a8ac;
+    -webkit-transition: background 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out;
+  }
+  @media (min-width: 900px) {
+    font-size: 13px;
+    width: 70%;
+    margin-top: 55px;
+    justify-self: center;
+    grid-column: span 2;
+  }
+}
+
+/*h3 {
+  width: 100%;
+  text-align: center;
+  margin: 2% 0% 2% 0%;
+  grid-row: 3/4;
+}
+.membercart {
+  grid-row: 4/5;
+  margin: 0 2% 0 2%;
+  display: flex;
+  flex-direction: column;
+  border: 2px #e2b4bd solid;
+  border-radius: 10px;
+  justify-content: center;
+
+  padding: 20px 50px 20px 20px;
+  margin: 20px;
+
+  span {
+    margin: 1% 3% 1% 3%;
+    text-align: center;
+  }
+}
+
+@media (min-width: 800px) {
+  h3 {
+    width: 100%;
+  }
+  .membercart {
+    flex-direction: row;
+
+    flex-wrap: wrap;
+  }
+}*/
+
+.alert {
+  display: block;
+  color: red;
+}
